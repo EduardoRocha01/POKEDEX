@@ -13,6 +13,7 @@ const fetchPokemon = async (pokemon) => { // fazendo buscas no API do pokemon
     const APIresponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
 
     if (APIresponse.status == 200){
+
     const data = await APIresponse.json()   // guardando os dandos de forma organizada
 
     return data;
@@ -21,7 +22,9 @@ const fetchPokemon = async (pokemon) => { // fazendo buscas no API do pokemon
 
 const renderPokemon = async (pokemon) =>{       //alteração de informaçoes da tela do dispositivo
      const data = await fetchPokemon(pokemon)
+     
 if (data){
+
      pokemon_name.innerHTML = data.name
      pokemon_number.innerHTML = data.id
      pokemon_image.src = data['sprites']['versions']['generation-v']['black-white']
